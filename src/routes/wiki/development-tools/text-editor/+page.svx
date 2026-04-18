@@ -1,0 +1,36 @@
+---
+title: Text Editor
+tags: Tools, KubeJS
+description: Text editors for writing JSON and scripts
+---
+
+<script lang="ts">
+import { Discord } from '$lib/reusables';
+</script>
+
+# Text Editor
+
+If you don't have a text editor to write your JSON files (for datapacks) and scripts (KubeJS scripts) in, you can quickly set one up by follow these instructions.
+
+For the purposes of mod pack development it is recommended you install [VSCodium](https://vscodium.com/) or [Visual Studio Code](https://code.visualstudio.com/download).
+
+## Formatting
+
+It is recommended you install the extension Prettier to automatically format your files to follow the standard formatting for each type of file, and to fix simple code errors you might have missed. It can streamline your development experience a lot.
+
+To install it, click the extensions button on the sidebar on the left. Then search for `Prettier - Code formatter`. Install it and restart or reload your editor to get it running. Now your scripts will automatically be formatted whenever you save!
+
+## Remove AI
+
+If you are using Visual Studio Code and want to disable the pesky AI. Open the command palette via `Ctrl + Shift + P` and searching for and selecting _Preferences: Open Workspace Settings (JSON)_.
+
+Add the following lines to the JSON file you just opened:
+
+```json
+{
+    "chat.agent.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "inlineChat.accessibleDiffView": "off",
+    "terminal.integrated.initialHint": false
+}
+```

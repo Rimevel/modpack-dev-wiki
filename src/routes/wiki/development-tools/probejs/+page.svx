@@ -1,0 +1,19 @@
+---
+title: ProbeJS
+tags: Tools, KubeJS
+description: Tool that provides auto-completion when working with KubeJS scripts
+---
+
+<script lang="ts">
+import { Discord } from '$lib/reusables';
+</script>
+
+# ProbeJS
+
+To make development with KubeJS a lot easier, it is **HIGHLY RECOMMENDED** that you install ProbeJS ([curseforge](https://www.curseforge.com/minecraft/mc-mods/probejs) (more up to date), [modrinth](https://modrinth.com/mod/probejs)).
+
+Recommended that you use this exact version (6.0.1, only available on Curseforge) for 1.20.1 development: https://www.curseforge.com/minecraft/mc-mods/probejs/files/5227399
+
+So what *is* ProbeJS? In short, it is a type definition generator that scan the code and classes of the game and the mods you have installed so that when you write your scripts you can get full auto-complete.
+
+To generate types, start your Minecraft instance and load a world, then run the command `/probejs dump`. After a short while you will have full auto-complete! **You have to do this every time you have added or removed a mod.**

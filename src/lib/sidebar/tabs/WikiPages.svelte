@@ -26,6 +26,8 @@
   import IconGitMerge from "~icons/tabler/git-merge";
   import IconVocabulary from "~icons/tabler/vocabulary";
   import IconEvergreen from "~icons/tabler/christmas-tree";
+  import IconTerminal from "~icons/tabler/terminal-2";
+  import IconCode from "~icons/tabler/code";
 </script>
 
 <!-- ADD PAGES AND CATEGORIES BELOW -->
@@ -65,5 +67,11 @@
   <SidebarPage label="Marketing" icon={IconPennant} page="/wiki/modpack-management/marketing" />
 </SidebarCategory>
 
+<SidebarCategory name="Scripting (KubeJS)" icon={IconTerminal}>
+  <SidebarPage label="Introduction" icon={IconCode} page="/wiki/scripting/introduction" />
+  <SidebarPage label="Scope" icon={IconCode} page="/wiki/scripting/scope" />
+  <SidebarPage label="Priority" icon={IconCode} page="/wiki/scripting/priority" />
+  <SidebarPage label="Pseudo-classes" icon={IconCode} page="/wiki/scripting/pseudo-classes" />
+</SidebarCategory>
 <SidebarPage label="Useful Mods" icon={IconHomeStar} page="/wiki/useful-mods" />
 <SidebarPage label="Evergreen Resources" icon={IconEvergreen} page="/wiki/evergreen" />

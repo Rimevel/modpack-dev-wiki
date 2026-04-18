@@ -28,6 +28,9 @@
   import IconEvergreen from "~icons/tabler/christmas-tree";
   import IconTerminal from "~icons/tabler/terminal-2";
   import IconCode from "~icons/tabler/code";
+  import IconSettings2 from "~icons/tabler/settings-2";
+  import IconCat from "~icons/tabler/cat";
+  import IconVisualStudio from "~icons/tabler/brand-visual-studio";
 </script>
 
 <!-- ADD PAGES AND CATEGORIES BELOW -->
@@ -67,11 +70,17 @@
   <SidebarPage label="Marketing" icon={IconPennant} page="/wiki/modpack-management/marketing" />
 </SidebarCategory>
 
+<SidebarCategory name="Development Tools" icon={IconSettings2}>
+  <SidebarPage label="Text Editor" icon={IconVisualStudio} page="/wiki/development-tools/text-editor" />
+  <SidebarPage label="ProbeJS" icon={IconCat} page="/wiki/development-tools/probejs" />
+</SidebarCategory>
+
 <SidebarCategory name="Scripting (KubeJS)" icon={IconTerminal}>
   <SidebarPage label="Introduction" icon={IconCode} page="/wiki/scripting/introduction" />
   <SidebarPage label="Scope" icon={IconCode} page="/wiki/scripting/scope" />
   <SidebarPage label="Priority" icon={IconCode} page="/wiki/scripting/priority" />
   <SidebarPage label="Pseudo-classes" icon={IconCode} page="/wiki/scripting/pseudo-classes" />
 </SidebarCategory>
+
 <SidebarPage label="Useful Mods" icon={IconHomeStar} page="/wiki/useful-mods" />
 <SidebarPage label="Evergreen Resources" icon={IconEvergreen} page="/wiki/evergreen" />

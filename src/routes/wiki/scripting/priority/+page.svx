@@ -1,0 +1,95 @@
+---
+title: Priority
+tags: KubeJS
+description: How to manage file loading priority in KubeJS
+---
+
+<script lang="ts">
+import { Discord } from '$lib/reusables';
+</script>
+
+# Priority
+
+There is one problem that can happen when you are referencing variables and functions in other script files. Each script file loads one at a time. So if a script is loading that use stuff in other scripts that have not yet been loaded, an error happens.
+
+`/kubejs/server_scripts/trees.js`:
+```js
+const vanillaTrees = [
+    "oak",
+    "birch",
+    "spruce",
+    "jungle",
+    "acacia",
+    "dark_oak",
+    "cherry",
+    "mangrove",
+    "warped",
+    "crimson"
+];
+```
+
+`/kubejs/server_scripts/logs.js`
+```js
+const logs = [];
+
+//This will run when the script is loaded since it is not wrapped in an event. It will cause an error if this file is loaded before trees.js, since vanillaTrees will be undefined.
+vanillaTrees.forEach(tree => {
+   logs.push(`minecraft:${tree}_log`);
+});
+```
+
+To prevent this issue you can use the built-in **priority** system in KubeJS. Priority is a rule you can add to your KubeJS script files to determine in what order the files are loaded.
+
+You do this by adding `//priority: <number>` to the first line of your script.
+
+Lets fix the priority of the example above.
+
+`/kubejs/server_scripts/trees.js`:
+```js
+const vanillaTrees = [
+    "oak",
+    "birch",
+    "spruce",
+    "jungle",
+    "acacia",
+    "dark_oak",
+    "cherry",
+    "mangrove",
+    "warped",
+    "crimson"
+];
+```
+
+`/kubejs/server_scripts/logs.js`
+```js
+//priority: 1
+const logs = [];
+
+//This will now always run correctly since this file will always be loaded after trees.js
+vanillaTrees.forEach(tree => {
+   logs.push(`minecraft:${tree}_log`);
+});
+```
+
+Now `logs.js` will always load after `trees.js`.
+
+### Pro tip: Negative priority
+
+Instead of writing a priority on top of every single script you want to load after another script, you can simply set the scripts you reference a lot to use a negative priority.
+
+`/kubejs/server_scripts/trees.js:
+```js
+//priority: -1
+const vanillaTrees = [
+    "oak",
+    "birch",
+    "spruce",
+    "jungle",
+    "acacia",
+    "dark_oak",
+    "cherry",
+    "mangrove",
+    "warped",
+    "crimson"
+];
+```

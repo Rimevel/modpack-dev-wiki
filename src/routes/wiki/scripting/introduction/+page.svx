@@ -1,0 +1,44 @@
+---
+title: Introduction
+tags: KubeJS
+description: Introduction to the KubeJS mod
+---
+
+<script lang="ts">
+import { Discord } from '$lib/reusables';
+</script>
+
+# KubeJS
+
+There are a few different mods you can add to your modpack to write scripts. But the by far most popular and used one is **KubeJS** ([curseforge](https://www.curseforge.com/minecraft/mc-mods/kubejs), [modrinth](https://modrinth.com/mod/kubejs)). All the information in this section is for KubeJS as well as mods and addons related to it. And all script examples on the wiki are KubeJS scripts.
+
+KubeJS scripts are JavaScript files (.js) and live in the `/kubejs` folder in your Minecraft instance.
+
+In the KubeJS folder there are three folders to put scripts in:
+
+- `/kubejs/startup_scripts` For scripts that run once when the game is started.
+- `/kubejs/server_scripts` For scripts that run on the server side of the game.
+- `/kubejs/client_scripts` For scripts that run on the client side of the game.
+
+In addition to the script folders there are two other folders for your convenience.
+
+- `/kubejs/assets` For assets like textures, sounds, etc. This folder works as one big resource-pack.
+- `/kubejs/data` For data like recipes, tags, etc. This folder works as one big data pack.
+
+Server scripts and the data folder are reloaded when using the `/reload` command.
+Client scripts and the assets folder are reloaded when using the `F3 + T` key bind.
+
+More granular reloading of scripts can be done using the `/kubejs reload <type>` commands.
+
+Startup scripts **can** be reloaded using `/kubejs reload startup_scripts`, but any events that run on startup won't run again.
+
+## Setting up your scripting environment
+
+Before you start writing KubeJS scripts you should set things up to give yourself a much easier time. Check out the following guides:
+
+- [Setting up a code editor](/wiki/scripting/development-tools/code-editor)
+- [ProbeJS](/wiki/scripting/development-tools/probejs)
+
+
+
+

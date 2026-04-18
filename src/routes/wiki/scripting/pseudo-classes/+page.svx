@@ -1,0 +1,57 @@
+---
+title: Pseudo-classes
+tags: KubeJS
+description: How to create code that behave (almost) like a class
+---
+
+<script lang="ts">
+import { Discord } from '$lib/reusables';
+</script>
+
+# Pseudo-classes
+
+KubeJS can't use regular Javascript classes due to the JS engine it is built upon, but there is a way to organize your code to imitate the functionality of a class. Including things like static variables, constructors and public and private functions.
+
+The whole idea starts with using an [IIFE](https://modpack-dev-knowledgebase.github.io/modpack-dev-wiki/wiki/scripting/scope/#limiting-scope-using-iifes) but returning a function from it. This allows you to keep the scope inside the IIFE it from being accessed from outside, letting you create constants and functions that should be shared by all instances of the pseudo-class.
+
+```js
+const myFakeClass = (function(){
+    //Private numbers that can't be accessed outside the pseudo-class
+    //Shared by all myFaceClass instances
+    const WIDTH = 16;
+    const HEIGHT = 16;
+
+    /**
+     * This is the constructor for the class
+     * It gets assigned to the myFakeClass constant
+     * @param {number} x
+     * @param {number} y
+     */
+    return function(x, y) {
+       //Constructor code goes here
+       
+	   let width = WIDTH;
+	   let height = HEIGHT;
+       
+       function getX() {
+           return x;
+       }
+       
+       function getY() {
+           return y;
+       }
+       
+       function setPosition(posX, posY) {
+           x = posX;
+           y = posy;
+       }
+       
+       //Publicly accessible variables and functions are returned in an object
+       return {
+           getX: getX,
+           getY: getY,
+           setPosition: setPosition
+       }
+    }
+})();
+```

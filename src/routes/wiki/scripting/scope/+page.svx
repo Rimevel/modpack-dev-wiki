@@ -1,0 +1,74 @@
+---
+title: Scope
+tags: KubeJS
+description: How code scope works in KubeJS script files
+---
+
+<script lang="ts">
+import { Discord } from '$lib/reusables';
+</script>
+
+# Scope
+
+Each of the three script folders in KubeJSis their own javascript scopes. All the scripts inside each script folder can access variables and functions in other scripts in the same folder.
+
+ - `/startup_scripts` Script files in this folder can access other startup scripts.
+ - `/server_scripts/` Script files in this folder can access other server scripts and startup scripts.
+ - `/client_scripts` Script files in this folder can access other client scripts and startup scripts.
+
+Let's say we have two script files:
+
+`/kubejs/server_scripts/playerUtils.js`:
+```js
+/**
+ * Check if player is Steve!
+ * @param {Internal.Player} player
+ */
+function checkIfPlayerIsSteve(player) {
+    return player.username === "Steve";
+}
+```
+
+`/kubejs/server_scripts/loginCheck.js`
+```js
+PlayerEvents.loggedIn(event => {
+    if(checkIfPlayerIsSteve(event.player)) {
+        event.player.tell("You are Steve!");
+    }
+});
+```
+
+Both files are in `/kubejs/server_scripts/`, the *checkIfPlayerIsSteve* function can be used in `loginCheck.js` even if it exists in  `playerUtils.js`.
+
+## Limiting scope using IIFEs
+
+If you don't want the top-level variables and functions you write in one script file to be accessed from other files, then you can use an **IEFE** (**I**mmediately **I**nvoked **F**unction **E**xpression).
+
+```js
+(function () {
+    //Code goes here
+})();
+```
+
+All the code inside the function gets run when the script loads, but all variables and functions won't be accessible from the outside.
+
+```js
+(function () {
+    /** @type {Array<Special.Block>} */
+    const blocks = [
+        "minecraft:grass",
+        "minecraft:grass_block",
+        "minecraft:tall_grass",
+    ];
+
+     blocks.forEach((block) => {
+        BlockEvents.rightClicked(block, (event) => {
+            event.player.tell("You touched grass! Congratulations!");
+        });
+     });
+})();
+
+const firstGrass = blocks[0]; //This will throw an error cause it can't access the blocks array
+```
+
+In the example above, the *blocks* variable is now completely closed off from outside the IIFE.

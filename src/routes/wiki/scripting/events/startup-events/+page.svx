@@ -1,0 +1,86 @@
+---
+title: Startup Events
+tags: KubeJS
+description: Events that run only once when the game first starts.
+---
+
+<script lang="ts">
+import { Discord } from '$lib/reusables';
+</script>
+
+# Startup Events
+
+Events that run only once when the game first starts.
+
+## Init
+
+Event that runs as soon as the game starts. Before registries are filled.
+
+```js
+StartupEvents.init(event => {
+    console.log('Game is initializing...')
+});
+```
+
+## PostInit
+
+Event that runs after the game have finished initializing. All registries should be locked at this point.
+
+```js
+StartupEvents.postInit(event => {
+    console.log('Initializaiton complete!')
+});
+```
+
+## Registry
+
+Event that allow you to add custom entries to a registry.
+
+The first parameter is the resource location of the registry you want to add things to.
+
+```js
+StartupEvents.registry('item', (event) => {
+    event.create("pack:my_custom_item").maxStackSize(16);
+});
+```
+
+## ModifyCreativeTab
+
+Event that allow you to modify creative tabs.
+
+The first parameter is the resource location of the creative tab you want to modify.
+
+```js
+StartupEvents.modifyCreativeTab("minecraft:building_blocks", (event) => {
+    //Use .add() to add one or more items to the end of the creative tabs list
+    event.add(["minecraft:red_stained_glass", "minecraft:blue_stained_glass"]);
+
+    //Use .addBefore() to add one or more items before a specific item in the creative tabs list
+    event.addBefore("minecraft:purple_stained_glass", [
+        "minecraft:red_stained_glass",
+        "minecraft:blue_stained_glass",
+    ]);
+
+    //Use .addAfter() to add one or more items after a specific item in the creative tabs list
+    event.addAfter("minecraft:orange_stained_glass", [
+        "minecraft:red_stained_glass",
+        "minecraft:blue_stained_glass",
+    ]);
+
+    //All the methods can be given a second argument to have the items appear in 'parent_tab_only', 'search_tab_only' or 'parent_and_search_tabs' (the default)
+    event.add(
+        ["minecraft:red_stained_glass", "minecraft:blue_stained_glass"],
+        "parent_tab_only"
+    );
+    event.addBefore(
+        "minecraft:purple_stained_glass",
+        ["minecraft:red_stained_glass", "minecraft:blue_stained_glass"],
+        "search_tab_only"
+    );
+    event.addAfter(
+        "orange_stained_glass",
+        ["minecraft:red_stained_glass", "minecraft:blue_stained_glass"],
+        "parent_and_search_tabs"
+    );
+});
+```

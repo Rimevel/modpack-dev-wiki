@@ -12,8 +12,20 @@ import { Discord } from '$lib/reusables';
 
 To make development with KubeJS a lot easier, it is **HIGHLY RECOMMENDED** that you install ProbeJS ([curseforge](https://www.curseforge.com/minecraft/mc-mods/probejs) (more up to date), [modrinth](https://modrinth.com/mod/probejs)).
 
-Recommended that you use this exact version (6.0.1, only available on Curseforge) for 1.20.1 development: https://www.curseforge.com/minecraft/mc-mods/probejs/files/5227399
+In short, it is a type definition generator that scan the code and classes of the game and the mods you have installed so that when you write your scripts you can get full auto-complete.
 
-So what *is* ProbeJS? In short, it is a type definition generator that scan the code and classes of the game and the mods you have installed so that when you write your scripts you can get full auto-complete.
+## 1.20.1
+
+It is recommended that you use this exact version (6.0.1, only available on Curseforge) for 1.20.1 development: https://www.curseforge.com/minecraft/mc-mods/probejs/files/5227399
 
 To generate types, start your Minecraft instance and load a world, then run the command `/probejs dump`. After a short while you will have full auto-complete! **You have to do this every time you have added or removed a mod.**
+
+## 1.21.1+
+
+On NeoForge and Minecraft 1.21.1+ ProbeJS have undergone a major rewrite. You can use the latest version of ProbeJs for your NeoForge modpack.
+
+Make sure you install the VSCode extension: https://marketplace.visualstudio.com/items?itemName=Prunoideae.probejs
+
+Then make sure the folder you open in VSCode is the `.minecraft` folder and not the `.minecraft/kubejs` folder. Also *the game must be running* for the plugin to work as it hooks into the game.
+
+One new feature in ProbeJS for 1.21.1+ is that you can now access auto-completion for any registry type by first typing @ and then the name of the registry. For example, you can type `@item` to quickly get auto-complete for any item in the game, or `@block` for any block.

@@ -10,11 +10,11 @@ import { Discord } from '$lib/reusables';
 
 # Scope
 
-Each of the three script folders in KubeJSis their own javascript scopes. All the scripts inside each script folder can access variables and functions in other scripts in the same folder.
+Each of the three script folders in KubeJS is their own javascript scopes. All the scripts inside each script folder can access variables and functions in other scripts in the same folder.
 
  - `/startup_scripts` Script files in this folder can access other startup scripts.
- - `/server_scripts/` Script files in this folder can access other server scripts and startup scripts.
- - `/client_scripts` Script files in this folder can access other client scripts and startup scripts.
+ - `/server_scripts` Script files in this folder can access other server scripts and shares the `global` variable with startup scripts.
+ - `/client_scripts` Script files in this folder can access other client scripts and shares the `global` variable with startup scripts.
 
 Let's say we have two script files:
 
@@ -72,3 +72,16 @@ const firstGrass = blocks[0]; //This will throw an error cause it can't access t
 ```
 
 In the example above, the *blocks* variable is now completely closed off from outside the IIFE.
+
+## The global variable
+
+All scripts have access to a variable called `global`. It always exist in a top-level scope and you can add properties or functions to this object as you want.
+
+```js
+global.myVariable = 4;
+global.myFunction = function() {
+    return "This is my function";
+}
+```
+
+This variable also exist across script types. Client-side and server-side scripts can access anything put into the global variable in startup-scripts.

@@ -10,11 +10,15 @@ import { Discord } from '$lib/reusables';
 
 # Startup Events
 
-Events that run only once when the game first starts.
+Startup scripts run once, at startup, on both the client and server. Most events that require registering or modifying something at game start (like custom blocks, items, and fluids) will be Startup events.
+
+If you change code inside a startup event, you have to restart the game for the changes to take effect. However, you can still reload code in startup scripts that are outside startup events, even functions and variables referenced by startup events.
 
 ## Init
 
 Event that runs as soon as the game starts. Before registries are filled.
+
+A perfect place to load data that you need during a registry event.
 
 ```js
 StartupEvents.init(event => {
@@ -36,7 +40,9 @@ StartupEvents.postInit(event => {
 
 Event that allow you to add custom entries to a registry.
 
-The first parameter is the resource location of the registry you want to add things to.
+The first parameter is the registry you want to add things to.
+
+Check out [Adding Items](https://modpack-dev-knowledgebase.github.io/modpack-dev-wiki/guide/custom-content/adding-items/) and [Adding Blocks](https://modpack-dev-knowledgebase.github.io/modpack-dev-wiki/guide/custom-content/adding-blocks/) for more info.
 
 ```js
 StartupEvents.registry('item', (event) => {
@@ -48,7 +54,7 @@ StartupEvents.registry('item', (event) => {
 
 Event that allow you to modify creative tabs.
 
-The first parameter is the resource location of the creative tab you want to modify.
+The first parameter is the resource location of the creative tab you want to modify. With ProbeJS 8.0, you can type `@creative_mode_tab` to get auto-completion.
 
 ```js
 StartupEvents.modifyCreativeTab("minecraft:building_blocks", (event) => {
@@ -67,7 +73,11 @@ StartupEvents.modifyCreativeTab("minecraft:building_blocks", (event) => {
         "minecraft:blue_stained_glass",
     ]);
 
-    //All the methods can be given a second argument to have the items appear in 'parent_tab_only', 'search_tab_only' or 'parent_and_search_tabs' (the default)
+    //All the methods can be given a second argument to have the items appear in.
+    //Possible options:
+    //'parent_and_search_tabs' (default)
+    //'parent_tab_only'
+    //'search_tab_only'
     event.add(
         ["minecraft:red_stained_glass", "minecraft:blue_stained_glass"],
         "parent_tab_only"

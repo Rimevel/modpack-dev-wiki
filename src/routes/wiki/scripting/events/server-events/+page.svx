@@ -1,0 +1,70 @@
+---
+title: Server Events
+tags: KubeJS
+description: Events that run on the server side of the game.
+---
+
+<script lang="ts">
+import { Discord } from '$lib/reusables';
+</script>
+
+# Server Events
+
+Server events run on the server-side of the game. They are reloaded when you run the /reload command. Server events will always exist, even in single-player worlds.
+
+Server events handle most events that make changes to the world while the game is running, such as breaking blocks, teleporting players, or adding recipes.
+
+## Loaded
+
+Event that runs as soon as a world is loaded.
+
+A perfect place to load data that you need for other server events.
+
+```js
+ServerEvents.loaded(event => {
+    //The server can be accessed through this event
+    let { server } = event;
+
+    console.log("Loaded server: " + server.name);
+});
+```
+
+## Registry
+
+Event that allows you to register special datapack-based registry data, such as music discs and painting variants.
+
+```js
+ServerEvents.registry("painting_variant", (event) => {
+    event
+        .create("pack:nyan_cat") //Id for this painting variant
+        .assetId("pack:nyan_cat") //Id of the paining asset 'assets/textures/painting/nyan_cat'
+        .size(2, 2); //Size of the painting (width, height)
+});
+
+ServerEvents.registry("jukebox_song", (event) => {
+    event
+        .create("aeronautics:adrift") //Id for this music disc
+        .song('aeronautics:music.adrift', 144) //The audio event and the length of the song
+        .description("Adrift") //Title of the song
+        .comparatorOutput(4) //Comparator output when the a jukebox is compared that is playing this song
+});
+```
+
+## Tick
+
+An event that is called every tick (20 times per second). Be careful when using this event since it can have major performance impact.
+
+```js
+ServerEvents.tick(event => {
+    //Anything here happens EVERY tick in the game. Use with caution.
+
+    //The server can be accessed through this event
+    let { server } = event;
+
+    //If you don't explicitly need something to run every tick, limit how often it runs, here every second.
+    if (server.tickCount % 20 === 0) {
+        console.log(server.averageTickTimeNanos);
+    }
+});
+```
+

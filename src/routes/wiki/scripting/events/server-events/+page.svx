@@ -10,13 +10,15 @@ import { Discord } from '$lib/reusables';
 
 # Server Events
 
-Server events run on the server-side of the game. They are reloaded when you run the /reload command. Server events will always exist, even in single-player worlds.
+Server events run on the server-side of the game. They are reloaded when you run the `/kubejs reload server_scripts` command. Server events will always exist, even in single-player worlds.
 
 Server events handle most events that make changes to the world while the game is running, such as breaking blocks, teleporting players, or adding recipes.
 
+If you make changes to an event that alters data (recipes, worldgen, etc.) then you need to do a full reload using the `/reload` command.
+
 ## Loaded
 
-Event that runs as soon as a world is loaded.
+Event that runs as soon as a save is loaded in single-player or a server is started in multi-player.
 
 A perfect place to load data that you need for other server events.
 
@@ -29,6 +31,21 @@ ServerEvents.loaded(event => {
 });
 ```
 
+## Unloaded
+
+Event that runs right before a save is unloaded in single-player or a server is closed in multi-player.
+
+A perfect place to do an extra save of persistant data that should stay between sessions. Though, you should always save data even during sessions when relevant cause of potential crashes.
+
+```js
+ServerEvents.unloaded(event => {
+    //The server can be accessed through this event
+    let { server } = event;
+
+    console.log("Stopped server: " + server.name);
+});
+```
+
 ## Registry
 
 Event that allows you to register special datapack-based registry data, such as music discs and painting variants.
@@ -37,7 +54,7 @@ Event that allows you to register special datapack-based registry data, such as 
 ServerEvents.registry("painting_variant", (event) => {
     event
         .create("pack:nyan_cat") //Id for this painting variant
-        .assetId("pack:nyan_cat") //Id of the paining asset 'assets/textures/painting/nyan_cat'
+        .assetId("pack:nyan_cat") //Id of the paining asset 'assets/pack/textures/painting/nyan_cat'
         .size(2, 2); //Size of the painting (width, height)
 });
 
@@ -68,3 +85,165 @@ ServerEvents.tick(event => {
 });
 ```
 
+## GenerateData
+
+An event that is called when datapacks are loaded. The first argument determines when during data loading the event runs.
+
+The first parameter can have any of the following values:
+
+| Value       | When                                                |
+| ----------- | --------------------------------------------------- |
+| registries  | Runs right after registries are populated           |
+| before_mods | Runs before mods are loaded                         |
+| internal    | Runs while internal registries from mods are loaded |
+| after_mods  | Runs after mods have been loaded                    |
+| last        | Runs after everything else have been loaded         |
+
+If you make changes to this event, you must do `/reload` to apply the changes.
+
+```js
+ServerEvents.generateData('after_mods', event => {
+    //Access to registres is available through this event
+    let { registries } = event;
+
+    //Use .json to create a new datapack JSON file at the provided resource location.
+    event.json("pack:recipes/bake_slimeball_from_mucus", {
+        type: "clayworks:baking",
+        category: "blocks",
+        cookingtime: 100,
+        experience: 0.1,
+        ingredient: {
+            item: 'spawn:mucus',
+        },
+        result: {
+            count: 1,
+            id: "minecraft:slime_ball",
+        },
+    });
+
+    //Make an item or all items from a tag compostable.
+    //Allows you to set the chance, and if villagers can compost the item(s).
+    event.setCompostable('#c:crops/rice', 0.2, true);
+
+    //Make an item or all items from a tag into possible furnace fuel.
+    //Allows you to set how many ticks the item(s) will burn for.
+    event.setFurnaceFuel('#another_furniture:tables', 1200);
+
+    //Add a mob to the pool of mobs that can spawn in spawners in monster rooms.
+    //The second parameter is the weighted chance for them to be choosen.
+    event.setMonsterRoomMobs('caverns_and_chasms:deeper', 4);
+
+    //Make one block able to oxidize from exposure to air, and over time turn into another block.
+    event.setOxidizable('minecraft:iron_block', 'pack:lightly_rusted_iron_block');
+
+    //Set the sound parrots make when immitating a specific mob.
+    event.setParrotImitation('caverns_and_chasms:deeper', 'caverns_and_chasms:entity.deeper.primed');
+
+    //Set the loot table a specific villager profession will use when throwing gifts at you when you are the hero of their village.
+    event.setRaidHeroGifts('minecraft:armorer', "quark:toretoise/lapis");
+
+    //Set the vibration frequency of a game event. Quite niche and you probably will never touch this unless you are making an actual mod.
+    event.setVibrationFrequency('caverns_and_chasms:tin_deflect', 10);
+
+    //Set the villager type that spawns in a specific biome
+    event.setVillagerType('atmospheric:dunes', 'minecraft:desert');
+
+    //Make a block turn into another block when waxed
+    event.setWaxable('minecraft:copper_block', 'minecraft:waxed_copper_block');
+});
+```
+
+## Recipes
+
+An event that is called when datapacks are loaded. This event handles the removal and creation of new recipes.
+
+```js
+ServerEvents.recipes((event) => {
+    //You can remove any recipe by giving it a selector, a selector can have one property or combine multiple
+    //Below are some examples of selectors and properties
+    
+    //This selector removes one specific recipe with a specific id
+    event.remove({ id: "minecraft:wheat" });
+
+    //You can remove all recipes from a specific mod
+    event.remove({ mod: "berry_good" });
+
+    //Or all recipes of a specific crafting type
+    event.remove({ type: "clayworks:baking" });
+
+    //You can remove all recipes with a specific input or output
+    event.remove({ input: "#c:crops/wheat" });
+    event.remove({ output: "create:wheat_flour" });
+
+    //You can also use "not" to avoid removing specific recipes from the primary target
+    event.remove({
+        mod: "another_furniture",
+        not: {
+            id: "another_furniture:service_bell",
+        },
+    });
+
+    //ReplaceInput allow you to get all recipes matching a selector and then replace a specific item or tag in those recipes with a specific item
+    event.replaceInput(
+        { input: "farmersdelight:rope" },
+        "farmersdelight:rope",
+        "supplementaries:rope"
+    );
+
+    //The same can be done with outputs as well
+    event.replaceOutput(
+        { output: "farmersdelight:rope" },
+        "farmersdelight:rope",
+        "supplementaries:rope"
+    );
+
+    //This event gives you access to a namespaced collection of recipe functions
+    let { recipes } = event;
+    //Minecraft is the default available namespace, but Create can also be added with the "KubeJS Create" mod
+    let { minecraft, create } = recipes;
+    // The minecraft namespace contains functions for easy recipe building of minecraft recipes
+    let {
+        crafting_shaped,
+        crafting_shapeless,
+        smelting,
+        blasting,
+        campfire_cooking,
+        smoking,
+        stonecutting,
+        smithing_transform,
+        smithing_trim,
+    } = minecraft;
+
+    //Example of creating a new shaped recipe for the crafting table
+    recipes.minecraft.crafting_shaped(
+        Item.of("supplementaries:rope", 3), //The item to craft
+        ["A", "A", "A"], //The pattern for each row in the crafting grid
+        { A: "farmersdelight:straw" } //What item or tag each letter in the pattern represent
+    );
+
+    //If there are no built-in functions for a specific recipe type, you can still add a custom recipe
+    //It is recomended that you create a function for each custom recipe type to prevent a lot of bloat and repetition in your script
+    //Bellow is an example of a custom recipe function I made for the Clayworks Kiln
+
+    /**
+     * @param {import("@package/net/minecraft/world/item").$ItemStack_} result
+     * @param {import("@package/net/minecraft/world/item/crafting").$Ingredient_} ingredient
+     * @param {number?} count
+     */
+    function baking(result, ingredient, count) {
+        event.custom({
+            type: "clayworks:baking",
+            category: "blocks",
+            cookingtime: 100,
+            experience: 0.1,
+            ingredient: {
+                item: ingredient,
+            },
+            result: {
+                count: count ?? 1,
+                id: result,
+            },
+        });
+    }
+});
+```

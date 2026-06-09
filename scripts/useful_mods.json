@@ -14,14 +14,15 @@
                 "profiling"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
             ],
             "loaders": [
+                "fabric",
                 "forge",
-                "neoforge",
-                "fabric"
+                "neoforge"
             ]
         },
         {
@@ -35,13 +36,15 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
-                "1.21.1"
+                "1.21.1",
+                "26.1"
             ],
             "loaders": [
+                "fabric",
                 "forge",
-                "neoforge",
-                "fabric"
+                "neoforge"
             ]
         },
         {
@@ -55,13 +58,15 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
-                "1.21.1"
+                "1.21.1",
+                "26.1"
             ],
             "loaders": [
+                "fabric",
                 "forge",
-                "neoforge",
-                "fabric"
+                "neoforge"
             ]
         },
         {
@@ -76,13 +81,15 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
-                "1.21.1"
+                "1.21.1",
+                "26.1"
             ],
             "loaders": [
+                "fabric",
                 "forge",
-                "neoforge",
-                "fabric"
+                "neoforge"
             ]
         },
         {
@@ -96,6 +103,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1"
             ],
             "loaders": [
@@ -114,10 +122,14 @@
                 "performance"
             ],
             "versions": [
-                "1.20.1"
+                "1.19.2",
+                "1.20.1",
+                "1.21.1"
             ],
             "loaders": [
-                "forge"
+                "fabric",
+                "forge",
+                "neoforge"
             ]
         },
         {
@@ -130,6 +142,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -149,6 +162,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -168,14 +182,15 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
             ],
             "loaders": [
+                "fabric",
                 "forge",
-                "neoforge",
-                "fabric"
+                "neoforge"
             ]
         },
         {
@@ -209,7 +224,7 @@
             ],
             "versions": [
                 "1.20.1",
-                "1.20.1",
+                "1.21.1",
                 "26.1"
             ],
             "loaders": [
@@ -229,6 +244,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -250,6 +266,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -291,6 +308,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -312,14 +330,15 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
             ],
             "loaders": [
                 "fabric",
-                "neoforge",
-                "forge"
+                "forge",
+                "neoforge"
             ]
         },
         {
@@ -332,6 +351,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -393,6 +413,7 @@
                 "bug_fixes"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -414,6 +435,7 @@
                 "bug_fixes"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -434,13 +456,14 @@
                 "bug_fixes"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
             ],
             "loaders": [
-                "forge",
                 "fabric",
+                "forge",
                 "neoforge"
             ]
         },
@@ -456,8 +479,10 @@
                 "bug_fixes"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
-                "1.21.1"
+                "1.21.1",
+                "26.1"
             ],
             "loaders": [
                 "fabric",
@@ -514,14 +539,15 @@
                 "bug_fixes"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
             ],
             "loaders": [
                 "fabric",
-                "neoforge",
-                "forge"
+                "forge",
+                "neoforge"
             ]
         },
         {
@@ -535,6 +561,7 @@
                 "profiling"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -556,28 +583,30 @@
                 "profiling"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
             "loaders": [
+                "fabric",
                 "forge",
-                "neoforge",
-                "fabric"
+                "neoforge"
             ]
         },
         {
-            "display_name": "Log Begone",
+            "display_name": "Console Filter",
             "link": {
-                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/log-begone",
-                "modrinth": "https://modrinth.com/mod/log-begone"
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/console-filter"
             },
             "description": "Allows you to stop entries from being logged in game console through phrases or regex",
+            "alternatives": "[Log Begone](https://www.curseforge.com/minecraft/mc-mods/log-begone)",
             "categories": [
                 "profiling"
             ],
             "versions": [
                 "1.20.1",
-                "1.21.1"
+                "1.21.1",
+                "26.1"
             ],
             "loaders": [
                 "fabric",
@@ -596,6 +625,7 @@
                 "profiling"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -617,6 +647,7 @@
                 "profiling"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -636,6 +667,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -655,12 +687,15 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
             ],
             "loaders": [
-                "fabric"
+                "fabric",
+                "forge",
+                "neoforge"
             ]
         },
         {
@@ -694,6 +729,7 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -713,6 +749,7 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -733,6 +770,7 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -754,6 +792,7 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1"
             ],
             "loaders": [
@@ -771,6 +810,7 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -789,6 +829,7 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -809,12 +850,13 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
             "loaders": [
-                "forge",
                 "fabric",
+                "forge",
                 "neoforge"
             ]
         },
@@ -835,8 +877,8 @@
             ],
             "loaders": [
                 "fabric",
-                "neoforge",
-                "forge"
+                "forge",
+                "neoforge"
             ]
         },
         {
@@ -850,10 +892,13 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
-                "1.21.1"
+                "1.21.1",
+                "26.1"
             ],
             "loaders": [
+                "fabric",
                 "forge",
                 "neoforge"
             ]
@@ -908,6 +953,7 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -989,7 +1035,7 @@
                 "modrinth": "https://modrinth.com/mod/reliable-replacer"
             },
             "description": "Allows for replacing one block with another, both during worldgen and afterward.",
-            "alternatives": "[Block Swap](https://www.curseforge.com/minecraft/mc-mods/block-swap), though this mod was made to address critical issues of it.",
+            "alternatives": "[Block Swap](https://www.curseforge.com/minecraft/mc-mods/block-swap), though this mod was made to address critical issues of it. [One Enough Block](https://www.curseforge.com/minecraft/mc-mods/one-enough-block)",
             "categories": [
                 "utility"
             ],
@@ -1004,7 +1050,7 @@
                 "neoforge"
             ]
         },
-                {
+        {
             "display_name": "Structurify",
             "link": {
                 "curseforge": "https://www.curseforge.com/minecraft/mc-mods/structurify",
@@ -1035,6 +1081,7 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1"
             ],
             "loaders": [
@@ -1051,6 +1098,7 @@
                 "documentation"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -1069,6 +1117,7 @@
                 "documentation"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -1126,10 +1175,12 @@
                 "documentation"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
             "loaders": [
+                "fabric",
                 "forge",
                 "neoforge"
             ]
@@ -1145,6 +1196,7 @@
                 "documentation"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1"
             ],
@@ -1160,11 +1212,12 @@
                 "curseforge": "https://www.curseforge.com/minecraft/mc-mods/e4mc",
                 "modrinth": "https://modrinth.com/mod/e4mc"
             },
-            "description": "Open a LAN server to anyone, anywhere, anytime.",
+            "description": "Open a LAN server to anyone, anywhere, anytime. Relies on donations to tunnel servers.",
             "categories": [
                 "multiplayer"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -1176,35 +1229,21 @@
             ]
         },
         {
-            "display_name": "Cloudflared",
+            "display_name": "Modflared",
             "link": {
-                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/cloudflared",
-                "modrinth": "https://modrinth.com/mod/cloudflared"
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/modflared",
+                "modrinth": "https://modrinth.com/mod/modflared"
             },
-            "description": "Play with your friends over CloudFlare.",
+            "description": "Automatically connects you to a Cloudflare tunnel without having to install cloudflared separately.",
+            "alternatives": "[CloudFlared](https://www.curseforge.com/minecraft/mc-mods/cloudflared) for Forge 1.20.1. Windows antivirus can delete the downloaded exe from Cloudflare, causing a crash on startup.",
             "categories": [
                 "multiplayer"
             ],
             "versions": [
-                "1.20.1"
-            ],
-            "loaders": [
-                "fabric",
-                "forge"
-            ]
-        },
-        {
-            "display_name": "Tunnely",
-            "link": {
-                "modrinth": "https://modrinth.com/mod/tunnely"
-            },
-            "description": "Tunnely is a simple Minecraft mod that tunnels your local host server to the internet, letting friends join easily.",
-            "categories": [
-                "multiplayer"
-            ],
-            "versions": [
+                "1.19.2",
                 "1.20.1",
-                "1.21.1"
+                "1.21.1",
+                "26.1"
             ],
             "loaders": [
                 "fabric",
@@ -1224,6 +1263,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -1245,6 +1285,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -1265,13 +1306,15 @@
                 "utility"
             ],
             "versions": [
-                "1.20.1"
+                "1.20.1",
+                "1.21.1"
             ],
             "loaders": [
-                "forge"
+                "forge",
+                "neoforge"
             ]
         },
-                {
+        {
             "display_name": "Domix's Guidebook",
             "link": {
                 "curseforge": "https://www.curseforge.com/minecraft/mc-mods/domixs-guidebook",
@@ -1288,7 +1331,7 @@
                 "fabric"
             ]
         },
-                {
+        {
             "display_name": "Bobby",
             "link": {
                 "curseforge": "https://www.curseforge.com/minecraft/mc-mods/bobby",
@@ -1299,6 +1342,7 @@
                 "performance"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
@@ -1318,10 +1362,12 @@
                 "utility"
             ],
             "versions": [
+                "1.19.2",
                 "1.21.1"
             ],
             "loaders": [
                 "fabric",
+                "forge",
                 "neoforge"
             ]
         },
@@ -1370,14 +1416,158 @@
                 "documentation"
             ],
             "versions": [
+                "1.19.2",
                 "1.20.1",
                 "1.21.1",
                 "26.1"
             ],
             "loaders": [
                 "fabric",
-                "neoforge",
-                "forge"
+                "forge",
+                "neoforge"
+            ]
+        },
+        {
+            "display_name": "QuickBench",
+            "link": {
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/quickbench",
+                "modrinth": "https://modrinth.com/mod/quickbench"
+            },
+            "description": "FastBench for Fabric",
+            "categories": [
+                "performance"
+            ],
+            "versions": [
+                "1.19.2",
+                "1.20.1",
+                "1.21.1"
+            ],
+            "loaders": [
+                "fabric"
+            ]
+        },
+        {
+            "display_name": "Emendatus Enigmatica",
+            "link": {
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/emendatus-enigmatica",
+                "modrinth": "https://modrinth.com/mod/emendatusenigmatica"
+            },
+            "description": "Dynamic material registry system, with world generation, compat, and many other features",
+            "categories": [
+                "utility"
+            ],
+            "versions": [
+                "1.19.2",
+                "1.21.1"
+            ],
+            "loaders": [
+                "forge",
+                "neoforge"
+            ]
+        },
+        {
+            "display_name": "Almost Unified",
+            "link": {
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/almostunified",
+                "modrinth": "https://modrinth.com/mod/almost-unified"
+            },
+            "description": "Unify all resources",
+            "categories": [
+                "utility"
+            ],
+            "versions": [
+                "1.19.2",
+                "1.20.1",
+                "1.21.1"
+            ],
+            "loaders": [
+                "fabric",
+                "forge",
+                "neoforge"
+            ]
+        },
+        {
+            "display_name": "One Enough Enchantment",
+            "link": {
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/one-enough-enchantment",
+                "modrinth": "https://modrinth.com/mod/one-enough-enchantment"
+            },
+            "description": "Dynamically control the weight of enchantments or even completely remove enchantments.",
+            "categories": [
+                "utility"
+            ],
+            "versions": [
+                "1.19.2",
+                "1.20.1",
+                "1.21.1"
+            ],
+            "loaders": [
+                "forge",
+                "neoforge"
+            ]
+        },
+        {
+            "display_name": "One Enough Item",
+            "link": {
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/one-enough-item",
+                "modrinth": "https://modrinth.com/mod/one-enough-item"
+            },
+            "description": "Replace duplicate items with a single designated representative item",
+            "categories": [
+                "utility"
+            ],
+            "versions": [
+                "1.19.2",
+                "1.20.1",
+                "1.21.1"
+            ],
+            "loaders": [
+                "fabric",
+                "forge",
+                "neoforge"
+            ]
+        },
+        {
+            "display_name": "LAN Server Properties",
+            "link": {
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/lan-server-properties",
+                "modrinth": "https://modrinth.com/mod/lan-server-properties"
+            },
+            "description": "Enhance the vanilla \"Open to LAN\" Gui for online mode and port customization",
+            "categories": [
+                "multiplayer"
+            ],
+            "versions": [
+                "1.20.1",
+                "1.21.1"
+            ],
+            "loaders": [
+                "fabric",
+                "forge",
+                "neoforge"
+            ]
+        },
+        {
+            "display_name": "FancyMenu",
+            "link": {
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/fancymenu",
+                "modrinth": "https://modrinth.com/mod/fancymenu"
+            },
+            "description": "Customize Minecraft menus in an in-game GUI editor",
+            "alternatives": "[PackMenu](https://www.curseforge.com/minecraft/mc-mods/packmenu) for Neo/Forge",
+            "categories": [
+                "utility"
+            ],
+            "versions": [
+                "1.19.2",
+                "1.20.1",
+                "1.21.1",
+                "26.1"
+            ],
+            "loaders": [
+                "fabric",
+                "forge",
+                "neoforge"
             ]
         }
     ]

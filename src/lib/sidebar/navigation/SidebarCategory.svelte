@@ -12,15 +12,17 @@
   const { children, name, icon }: Props = $props();
 
   const Icon = $derived(icon);
+
+  let open = $state(false);
 </script>
 
-<details ontoggle={() => (windowInfo.isNavOpen = true)} class="w-full group marker:hidden">
+<details ontoggle={() => ((windowInfo.isNavOpen = true), (open = !open))} class="w-full marker:hidden">
   <summary
     class="rounded-lg cursor-pointer p-1 flex gap-2 items-center text-left hover:bg-stone-700 hover:text-white hover:font-medium marker:hidden focus-visible:outline-2 focus-visible:outline-mdw-yellow">
     <Icon />
     {#if windowInfo.isNavOpen}
       <p class="grow">{name}</p>
-      <IconExpand class="motion-safe:transition-all group-open:rotate-90 rotate-0 select-none" />
+      <IconExpand class="motion-safe:transition-all rotate-0 select-none {open ? 'rotate-90' : ''}" />
     {/if}
   </summary>
   {#if windowInfo.isNavOpen}

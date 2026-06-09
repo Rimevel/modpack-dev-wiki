@@ -31,6 +31,7 @@
   import IconSettings2 from "~icons/tabler/settings-2";
   import IconCat from "~icons/tabler/cat";
   import IconVisualStudio from "~icons/tabler/brand-visual-studio";
+  import IconFlag from "~icons/tabler/flag";
 </script>
 
 <!-- ADD PAGES AND CATEGORIES BELOW -->
@@ -80,8 +81,10 @@
   <SidebarPage label="Scope" icon={IconCode} page="/wiki/scripting/scope" />
   <SidebarPage label="Priority" icon={IconCode} page="/wiki/scripting/priority" />
   <SidebarPage label="Pseudo-classes" icon={IconCode} page="/wiki/scripting/pseudo-classes" />
-  <SidebarPage label="Startup Events" icon={IconCode} page="/wiki/scripting/events/startup-events" />
-  <SidebarPage label="Server Events" icon={IconCode} page="/wiki/scripting/events/server-events" />
+  <SidebarCategory name="Events" icon={IconFlag}>
+    <SidebarPage label="Startup Events" icon={IconCode} page="/wiki/scripting/events/startup-events" />
+    <SidebarPage label="Server Events" icon={IconCode} page="/wiki/scripting/events/server-events" />
+  </SidebarCategory>
 </SidebarCategory>
 
 <SidebarPage label="Useful Mods" icon={IconHomeStar} page="/wiki/useful-mods" />
